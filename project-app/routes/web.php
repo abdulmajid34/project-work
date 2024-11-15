@@ -1,0 +1,125 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PembayaranController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+// Your custom unauthorized page
+Route::get('/unauthorized', function () {
+    $title = 'Unauthorized';
+    return view('errorpage.401', compact('title'));
+});
+
+Route::fallback(function () {
+    $title = 'Page Not Found';
+    return view('errorpage.404', compact('title'));
+});
+
+Route::get('/404', function () {
+    $title = 'Page Not Found';
+    return view('errorpage.404', compact('title'));
+})->name('404');
+
+Route::get('forbidden', function () {
+    return view('errorpage.403');
+})->name('forbidden');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [AuthController::class, 'formLogin']);
+Route::post('/', [AuthController::class, 'postLogin'])->name('login');
+
+Route::middleware(['auth:admin'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(('auth'));
+    // route users
+    Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(('auth'));
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create')->middleware(('auth'));
+    Route::post('/user/store', [UserController::class, 'store'])->name('user.store')->middleware(('auth'));
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware(('auth'));
+    Route::put('/user/{user}/update', [UserController::class, 'update'])->name('user.update')->middleware(('auth'));
+    Route::delete('/user/{user}/destroy', [UserController::class, 'destroy'])->name('user.destroy')->middleware(('auth'));
+
+    // route kelas
+    // Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('can:role, "ketua_kelas"'));
+    Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('auth'));
+
+    // route siswa
+    // Route::get('/', [SiswaController::class, 'index'])->name('siswa')->middleware(('can:role, "siswa" '));
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa')->middleware(('auth'));
+
+    // route bendahara
+    // Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('can:role, "bendahara"'));
+    Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('auth'));
+    // Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('can:role, "bendahara"'));
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('auth'));
+});
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//     Route::prefix('admin')->group(function () {
+//         Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(('can:role, "admin"'));
+//     });
+
+//     Route::prefix('ketua_kelas')->group(function () {
+//         Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('can:role, "ketua_kelas"'));
+//     });
+
+//     Route::prefix('siswa')->group(function () {
+//         Route::get('/', [SiswaController::class, 'index'])->name('siswa')->middleware(('can:role, "siswa"'));
+//     });
+
+//     Route::prefix('bendahara')->group(function () {
+//         Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('can:role, "bendahara"'));
+//         Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('can:role, "bendahara"'));
+//     });
+// });
+
+
+// Route::middleware(['can:role, "admin"'])->group(function () {
+//     // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+//     // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(('auth'));
+
+//     Route::prefix('admin')->group(function () {
+//         Route::get('/user', [UserController::class, 'index'])->name('user');
+//     });
+//     // Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(('can:role, "admin"'));
+// });
+
+// Route::middleware(['can:role, "ketua_kelas"'])->group(function () {
+//     Route::prefix('ketua_kelas')->group(function () {
+//         Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
+//     });
+// });
+
+// Route::middleware(['can:role, "siswa"'])->group(function () {
+//     Route::prefix('siswa')->group(function () {
+//         Route::get('/', [SiswaController::class, 'index'])->name('siswa');
+//     });
+// });
+
+// Route::middleware(['can:role, "bendahara"'])->group(function () {
+//     Route::prefix('bendahara')->group(function () {
+//         Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
+//         Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+//     });
+// });
