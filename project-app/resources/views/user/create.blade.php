@@ -49,8 +49,7 @@
                             </div>
                             <div class="col-md-8">
                                 <input type="text" class="form-control @error('nama_akun') is-invalid @enderror"
-                                    name="nama_akun" autofocus required value="{{ old('nama_akun') }}"
-                                    placeholder="nama_akun">
+                                    name="nama_akun" autofocus required placeholder="nama_akun">
                                 @error('nama_akun')
                                     <div class="invalid-feedback">
                                         {{ $message }}

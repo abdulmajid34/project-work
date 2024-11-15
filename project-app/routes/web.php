@@ -51,12 +51,12 @@ Route::middleware(['auth:admin'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(('auth'));
     // route users
-    Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(('auth'));
-    Route::get('/user/create', [UserController::class, 'create'])->name('user.create')->middleware(('auth'));
-    Route::post('/user/store', [UserController::class, 'store'])->name('user.store')->middleware(('auth'));
-    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware(('auth'));
-    Route::put('/user/{user}/update', [UserController::class, 'update'])->name('user.update')->middleware(('auth'));
-    Route::delete('/user/{user}/destroy', [UserController::class, 'destroy'])->name('user.destroy')->middleware(('auth'));
+    Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('can:role,"admin|ketua_kelas"');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create')->middleware('can:role,"admin|ketua_kelas"');
+    Route::post('/user/store', [UserController::class, 'store'])->name('user.store')->middleware('can:role,"admin|ketua_kelas"');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('can:role,"admin|ketua_kelas"');
+    Route::put('/user/{user}/update', [UserController::class, 'update'])->name('user.update')->middleware('can:role,"admin|ketua_kelas"');
+    Route::delete('/user/{user}/destroy', [UserController::class, 'destroy'])->name('user.destroy')->middleware('can:role,"admin|ketua_kelas"');
 
     // route kelas
     // Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('can:role, "ketua_kelas"'));

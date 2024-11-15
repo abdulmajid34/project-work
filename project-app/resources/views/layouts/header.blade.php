@@ -53,8 +53,8 @@
                                             class="user-avtar wid-35" />
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mt-2">{{ Auth::user()->username }} 🖖</h6>
-                                        <small>{{ Auth::user()->role }}</small>
+                                        <h6 class="mt-2">{{ Auth::user()->nama_akun }} 🖖</h6>
+                                        <small>{{ Auth::user()->username }} - {{ Auth::user()->role }}</small>
                                     </div>
                                 </div>
                                 <hr class="border-secondary border-opacity-50" />

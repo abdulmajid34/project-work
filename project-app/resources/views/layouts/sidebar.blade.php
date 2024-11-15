@@ -18,39 +18,42 @@
                                 class="user-avtar wid-45 rounded-circle" />
                         </div>
                         <div class="flex-grow-1 ms-3 me-2">
-                            <h6 class="mb-0">{{ Auth::user()->username }}</h6>
-                            <small>{{ Auth::user()->role }}</small>
+                            <h6 class="mb-0">{{ Auth::user()->nama_akun }}</h6>
+                            <small>{{ Auth::user()->username }} - {{ Auth::user()->role }}</small>
                         </div>
                     </div>
                 </div>
             </div>
             <ul class="pc-navbar">
-                <li class="pc-item pc-caption"><label>Navigation</label></li>
-                <li class="pc-item {{ URL::current() == route('user') ? 'active' : '' }}">
-                    <a href="{{ route('user') }}" class="pc-link"><span class="pc-micon">
-                            <svg class="pc-icon">
-                                <use xlink:href="#custom-user"></use>
-                            </svg></span><span class="pc-mtext">Users</span></a>
-                </li>
+                <li class="pc-item pc-caption"><label>Halaman</label></li>
+                @if (Auth::user()->role == 'admin' || Auth::user()->role == 'ketua_kelas')
+                    <li
+                        class="pc-item {{ URL::current() == route('user') || URL::current() == route('user.create') ? 'active' : '' }}">
+                        <a href="{{ route('user') }}" class="pc-link"><span class="pc-micon">
+                                <svg class="pc-icon">
+                                    <use xlink:href="#custom-user"></use>
+                                </svg></span><span class="pc-mtext">Users</span></a>
+                    </li>
+                @endif
                 <li class="pc-item">
-                    <a href="../widget/w_data.html" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
+                    <a href="{{ route('kelas') }}" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
                                 <use xlink:href="#custom-fatrows"></use>
                             </svg> </span><span class="pc-mtext">Kelas</span></a>
                 </li>
                 <li class="pc-item">
-                    <a href="../widget/w_chart.html" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
+                    <a href="{{ route('siswa') }}" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
                                 <use xlink:href="#custom-user-square"></use>
                             </svg> </span><span class="pc-mtext">Siswa</span></a>
                 </li>
                 <li class="pc-item">
-                    <a href="../widget/w_chart.html" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
+                    <a href="{{ route('transaksi') }}" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
                                 <use xlink:href="#custom-presentation-chart"></use>
-                            </svg> </span><span class="pc-mtext">Transaksi</span></a>
+                            </svg> </span><span class="pc-mtext">Laporan Transaksi</span></a>
                 </li>
                 <li class="pc-item">
-                    <a href="../widget/w_chart.html" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
+                    <a href="{{ route('pembayaran') }}" class="pc-link"><span class="pc-micon"><svg class="pc-icon">
                                 <use xlink:href="#custom-dollar-square"></use>
-                            </svg> </span><span class="pc-mtext">Transaksi</span></a>
+                            </svg> </span><span class="pc-mtext">Pembayaran</span></a>
                 </li>
             </ul>
         </div>

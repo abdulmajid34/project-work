@@ -180,7 +180,7 @@ return [
     */
 
     'attributes' => [
-        'username-incorrect' => 'Username must be 11 digits',
+        'username-incorrect' => 'Username must be 12 digits',
         'username-invalid' => 'Username is invalid',
         'password-incorrect' => 'Password is incorrect',
     ],
