@@ -2,6 +2,11 @@
 
 return [
 
+    'gemini' => [
+        'api_key' => env('GEMINI_API_KEY'),
+        'base_url' => env('GEMINI_API_URL'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Third Party Services

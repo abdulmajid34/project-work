@@ -60,11 +60,7 @@
     <!-- [ Main Content ] end -->
     @include('layouts.footer')
 
-    <div class="floting-button">
-        <a href="#" class="btn btn btn-danger buynowlinks d-inline-flex align-items-center gap-2"
-            data-bs-toggle="tooltip" title="Chat Now"><i class="bi bi-chat-fill"></i> <span>Hubungi
-                Kami</span></a>
-    </div>
+    @include('layouts.geminiAI')
 
     <!-- SETTINGS -->
     <div class="pct-c-btn">

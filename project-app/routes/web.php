@@ -8,6 +8,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\GeminiAIController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,12 +40,15 @@ Route::get('forbidden', function () {
 })->name('forbidden');
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/gemini-ai', function () {
+    return view('geminiAI');
+});
 
 Route::get('/', [AuthController::class, 'formLogin']);
 Route::post('/', [AuthController::class, 'postLogin'])->name('login');
+
+
+Route::post('/analyze-text', [GeminiAIController::class, 'analyze']);
 
 Route::middleware(['auth:admin'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

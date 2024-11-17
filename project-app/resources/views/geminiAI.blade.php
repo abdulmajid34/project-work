@@ -2,16 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="web app system management keuangan kelas" />
-    <meta name="keywords"
-        content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, system management keuangan kelas, kelas, pendidikan" />
-    <meta name="author" content="Phoenixcoded" />
-    <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
-    <!-- [Font] Family -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KAS app | Ask Anything with the Gemini AI</title>
     <link rel="stylesheet" href="{{ asset('assets/fonts/inter/inter.css') }}" id="main-font-link" />
     <!-- [phosphor Icons] https://phosphoricons.com/ -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/phosphor/duotone/style.css') }}" />
@@ -23,40 +17,41 @@
     <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}" />
     <!-- [Material Icons] https://fonts.google.com/icons -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/material.css') }}" />
-    <!-- [Template CSS Files] -->
+    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link" />
     <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css') }}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="{{ asset('assets/js/tech-stack.js') }}"></script>
-</head><!-- [Head] end --><!-- [Body] Start -->
-
-
-<!-- bootstrap -->
-{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> --}}
-<title>Login | System Management Keuangan Kelas</title>
 </head>
 
-<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr"
-    data-pc-theme_contrast="" data-pc-theme="light">
+<body>
+    <main>
 
-    <!-- [ Pre-loader ] start -->
-    <div class="loader-bg">
-        <div class="loader-track">
-            <div class="loader-fill"></div>
+
+        <h1 class="text-center text-primary mb-4">Ask Anything with the Gemini AI</h1>
+
+        <form id="analyzeForm" action="/analyze-text" method="POST">
+            @csrf
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                <input name="text" placeholder="How Are You Today?" type="text">
+                <button class="btn btn-primary" type="submit">
+                    <i class="ti ti-send"></i>
+                    <span>Send</span>
+                </button>
+            </div>
+        </form>
+
+        <div id="loadingIndicator" class="spinner" style="display: none;"></div>
+        <span id="loadingText" style="display: none;">Generating...</span>
+
+        <div id="result" style="display: none;">
+            @if (isset($result))
+                <p>{!! $result ?? 'Your result will appear here' !!}</p>
+            @endif
         </div>
-    </div>
-    <!-- [ Pre-loader ] End -->
 
-    <div class="auth-main">
-        <div class="auth-wrapper v2">
-            @yield('content')
-        </div>
-    </div>
+    </main>
 
-
-    @include('layouts.geminiAI')
-
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- SETTINGS -->
     <div class="pct-c-btn">
