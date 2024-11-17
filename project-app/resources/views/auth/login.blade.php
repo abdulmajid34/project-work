@@ -12,7 +12,7 @@
         <div class="card my-5">
             <h2 class="text-center text-primary">System Management Keuangan Kelas (KAS app)</h2>
             <div class="card-body">
-                <h4 class="text-center f-w-500 mb-3">Login Page</h4>
+                <h2 class="text-center text-primary f-w-500 mb-3">Login Page</h2>
 
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">

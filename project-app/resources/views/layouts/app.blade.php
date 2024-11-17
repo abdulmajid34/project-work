@@ -155,25 +155,25 @@
                         <h6 class="mb-1">Custom Theme</h6>
                         <p class="text-muted text-sm">Choose your primary theme color</p>
                         <div class="theme-color preset-color">
-                            <a href="#!" data-bs-toggle="tooltip" title="Blue" class="active"
-                                data-value="preset-1"><i class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Indigo" data-value="preset-2"><i
+                            <a data-bs-toggle="tooltip" title="Blue" class="active" data-value="preset-1"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Purple" data-value="preset-3"><i
+                            <a data-bs-toggle="tooltip" title="Indigo" data-value="preset-2"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Pink" data-value="preset-4"><i
+                            <a data-bs-toggle="tooltip" title="Purple" data-value="preset-3"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Red" data-value="preset-5"><i
+                            <a data-bs-toggle="tooltip" title="Pink" data-value="preset-4"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Orange" data-value="preset-6"><i
+                            <a data-bs-toggle="tooltip" title="Red" data-value="preset-5"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Yellow" data-value="preset-7"><i
+                            <a data-bs-toggle="tooltip" title="Orange" data-value="preset-6"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Green" data-value="preset-8"><i
+                            <a data-bs-toggle="tooltip" title="Yellow" data-value="preset-7"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Teal" data-value="preset-9"><i
+                            <a data-bs-toggle="tooltip" title="Green" data-value="preset-8"><i
                                     class="ti ti-checks"></i></a>
-                            <a href="#!" data-bs-toggle="tooltip" title="Cyan" data-value="preset-10"><i
+                            <a data-bs-toggle="tooltip" title="Teal" data-value="preset-9"><i
+                                    class="ti ti-checks"></i></a>
+                            <a data-bs-toggle="tooltip" title="Cyan" data-value="preset-10"><i
                                     class="ti ti-checks"></i></a>
                         </div>
                     </li>
@@ -291,9 +291,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="{{ asset('assets/js/plugins/apexcharts.min.js') }}"></script>

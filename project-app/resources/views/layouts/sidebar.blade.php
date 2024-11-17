@@ -7,7 +7,7 @@
                     alt="logo" />
             </a>
             <h4>KAS app</h4>
-            <span class="badge bg-light-success rounded-pill ms-2 theme-version"> v9.4.3</span>
+            <span class="badge bg-light-primary rounded-pill ms-2 theme-version"> v1</span>
         </div>
         <div class="navbar-content">
             <div class="card pc-user-card">

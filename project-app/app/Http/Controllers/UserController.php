@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
 
 class UserController extends Controller
 {
@@ -52,5 +54,11 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('user')->with('success', 'User deleted successfully');
+    }
+
+    public function export(Request $request)
+    {
+        $filters = $request->only(['username', 'nama_akun', 'status', 'role']);
+        return Excel::download(new UsersExport($filters), 'users.xlsx');
     }
 }

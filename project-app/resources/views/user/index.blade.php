@@ -36,19 +36,19 @@
                 <div class="card-body table-border-style">
                     <div class="d-flex justify-content-end mb-3">
 
-                        <button class="btn btn-info">
+                        <button class="btn btn-primary">
                             <span>
                                 <i class="bi bi-box-arrow-in-down"></i>
                                 Import
                             </span>
                         </button>
 
-                        <button class="btn btn-warning mx-2">
+                        <a href="{{ route('user.export') }}" class="btn btn-primary mx-2">
                             <i class="bi bi-upload"></i>
                             <span>Download</span>
-                        </button>
+                        </a>
 
-                        <a href="{{ route('user.create') }}" class="btn btn-success" data-bs-toggle="tooltip"
+                        <a href="{{ route('user.create') }}" class="btn btn-primary" data-bs-toggle="tooltip"
                             data-bs-placement="top" title="Tambah Data">
                             <span>
                                 <i class="bi bi-plus-lg py-2"></i>
@@ -92,11 +92,11 @@
                                             @if ($user->role == 'admin')
                                                 <span class="badge bg-primary">Admin</span>
                                             @elseif ($user->role == 'ketua_kelas')
-                                                <span class="badge bg-success">Ketua Kelas</span>
+                                                <span class="badge bg-primary">Ketua Kelas</span>
                                             @elseif ($user->role == 'bendahara')
-                                                <span class="badge bg-warning">Bendahara</span>
+                                                <span class="badge bg-primary">Bendahara</span>
                                             @elseif ($user->role == 'siswa')
-                                                <span class="badge bg-secondary">Siswa</span>
+                                                <span class="badge bg-primary">Siswa</span>
                                             @endif
                                         </td>
                                         <td class="text-center">
