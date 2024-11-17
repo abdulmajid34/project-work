@@ -62,11 +62,6 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::put('/user/{user}/update', [UserController::class, 'update'])->name('user.update')->middleware('can:role,"admin|ketua_kelas"');
     Route::delete('/user/{user}/destroy', [UserController::class, 'destroy'])->name('user.destroy')->middleware('can:role,"admin|ketua_kelas"');
 
-    Route::get('/user/import', [UserController::class, 'import'])->name('user.import')->middleware('can:role,"admin|ketua_kelas"');
-    Route::get('/user/export', [UserController::class, 'export'])
-        ->name('user.export')
-        ->middleware('can:role,"admin|ketua_kelas"');
-
     // route kelas
     // Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('can:role, "ketua_kelas"'));
     Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('auth'));

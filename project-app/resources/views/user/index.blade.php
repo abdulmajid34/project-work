@@ -43,10 +43,10 @@
                             </span>
                         </button>
 
-                        <a href="{{ route('user.export') }}" class="btn btn-primary mx-2">
+                        <button class="btn btn-primary mx-2">
                             <i class="bi bi-upload"></i>
                             <span>Download</span>
-                        </a>
+                        </button>
 
                         <a href="{{ route('user.create') }}" class="btn btn-primary" data-bs-toggle="tooltip"
                             data-bs-placement="top" title="Tambah Data">
