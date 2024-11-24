@@ -35,7 +35,6 @@
                 </div>
                 <div class="card-body table-border-style">
                     <div class="d-flex justify-content-end mb-3">
-
                         <button class="btn btn-primary">
                             <span>
                                 <i class="bi bi-box-arrow-in-down"></i>

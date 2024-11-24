@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal_pembayaran');
-            $table->decimal('jumlah', 10, 2);
+            $table->integer('jumlah');
             $table->unsignedBigInteger('siswa_id');
-            $table->boolean('status_pembayaran');
-            $table->decimal('total', 10, 2);
+            $table->boolean('status_pembayaran')->default(true);
+            $table->text('deskripsi')->nullable();
 
             $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
             $table->timestamps();

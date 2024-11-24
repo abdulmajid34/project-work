@@ -73,6 +73,9 @@ Route::middleware(['auth:admin'])->group(function () {
     // route bendahara
     // Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('can:role, "bendahara"'));
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('auth'));
+    Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create')->middleware('can:role,"admin|bendahara"');
+    Route::post('/pembayaran/store', [PembayaranController::class, 'store'])->name('pembayaran.store')->middleware('can:role,"admin|bendahara"');
+    Route::delete('/pembayaran/{pembayaran}/destroy', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy')->middleware('can:role,"admin|bendahara"');
     // Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('can:role, "bendahara"'));
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('auth'));
 });
