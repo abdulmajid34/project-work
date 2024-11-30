@@ -12,31 +12,13 @@ class KelasSeeder extends Seeder
         DB::table('kelas')->insert([
             [
                 'user_id' => 1,
-                'kode_kelas' => 'KLS101',
-                'no_ruangan' => '101',
-                'fakultas' => 'Teknik',
+                'kode_kelas' => '02TPLP004',
+                'no_ruangan' => '303',
+                'fakultas' => 'Ilmu Komputer',
                 'program_studi' => 'Teknik Informatika',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'user_id' => 2,
-                'kode_kelas' => 'KLS102',
-                'no_ruangan' => '102',
-                'fakultas' => 'Ekonomi',
-                'program_studi' => 'Manajemen',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'user_id' => 3,
-                'kode_kelas' => 'KLS103',
-                'no_ruangan' => '103',
-                'fakultas' => 'Hukum',
-                'program_studi' => 'Ilmu Hukum',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+            ]
         ]);
     }
 }

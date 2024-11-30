@@ -26,7 +26,7 @@ class SiswaSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'kelas_id' => 2,
+                'kelas_id' => 1,
                 'nama_lengkap' => 'Siti Aminah',
                 'nim' => '12345678902',
                 'tanggal_lahir' => Carbon::parse('2006-04-20'),
@@ -39,7 +39,7 @@ class SiswaSeeder extends Seeder
             ],
             [
                 'user_id' => 3,
-                'kelas_id' => 3,
+                'kelas_id' => 1,
                 'nama_lengkap' => 'Ahmad Fauzan',
                 'nim' => '12345678903',
                 'tanggal_lahir' => Carbon::parse('2004-12-05'),

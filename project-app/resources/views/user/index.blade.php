@@ -35,24 +35,17 @@
                 </div>
                 <div class="card-body table-border-style">
                     <div class="d-flex justify-content-end mb-3">
-                        <button class="btn btn-primary">
-                            <span>
-                                <i class="bi bi-box-arrow-in-down"></i>
-                                Import
-                            </span>
+                        <button class="btn btn-icon btn-light-primary">
+                            <i class="bi bi-box-arrow-in-down"></i>
                         </button>
 
-                        <button class="btn btn-primary mx-2">
+                        <button class="btn btn-icon btn-light-primary mx-2">
                             <i class="bi bi-upload"></i>
-                            <span>Download</span>
                         </button>
 
-                        <a href="{{ route('user.create') }}" class="btn btn-primary" data-bs-toggle="tooltip"
+                        <a href="{{ route('user.create') }}" class="btn btn-icon btn-light-primary" data-bs-toggle="tooltip"
                             data-bs-placement="top" title="Tambah Data">
-                            <span>
-                                <i class="bi bi-plus-lg py-2"></i>
-                                Tambah
-                            </span>
+                            <i class="bi bi-plus-lg py-2"></i>
                         </a>
                     </div>
 

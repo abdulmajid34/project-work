@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/dropzone.min.css') }}">
     <script src="{{ asset('assets/js/tech-stack.js') }}"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> --}}
 </head><!-- [Head] end --><!-- [Body] Start -->
@@ -290,10 +291,13 @@
     </div>
 
     <!-- [Page Specific JS] end --><!-- Required Js -->
+    <input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1"
+        style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
     <script src="{{ asset('assets/js/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+    {{-- <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>/ --}}
+    <script src="{{ asset('assets/js/plugins/dropzone-amd-module.min.js') }}"></script>
     <!--
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     -->
