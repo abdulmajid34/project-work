@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Siswa;
 // use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class AuthController extends Controller
@@ -34,7 +35,11 @@ class AuthController extends Controller
             } else if ($user->role == 'bendahara') {
                 return redirect()->route('siswa');
             } else if ($user->role == 'siswa') {
-                return redirect()->route('kelas');
+                $siswa = Siswa::where('user_id', $user->id)->first();
+                if ($siswa) {
+                    return redirect()->route('kelas');
+                }
+                return redirect()->route('siswa.create');
             }
         }
 

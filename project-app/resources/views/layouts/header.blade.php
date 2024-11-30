@@ -59,11 +59,19 @@
                                 </div>
                                 <hr class="border-secondary border-opacity-50" />
                                 <p class="text-span">Manage</p>
-                                <a href="#" class="dropdown-item"><span>
+                                @php
+                                    $siswaExists = null;
+                                    if (Auth::user()->role == 'siswa') {
+                                        $siswaExists = \App\Models\Siswa::where('user_id', Auth::user()->id)->exists();
+                                    }
+                                @endphp
+                                <a href="{{ route('profile') }}"
+                                    class="dropdown-item {{ Auth::user()->role == 'siswa' && !$siswaExists ? 'disabled' : '' }}"
+                                    @if (Auth::user()->role == 'siswa' && !$siswaExists) onclick="return false;" style="opacity: 0.6; cursor: not-allowed;" @endif><span>
                                         <i class="ti ti-user"></i>
                                         <span>My Account</span>
                                     </span></a>
-                                <a href="#" class="dropdown-item"><span><svg class="pc-icon text-muted me-2">
+                                <a class="dropdown-item"><span><svg class="pc-icon text-muted me-2">
                                             <use xlink:href="#custom-lock-outline"></use>
                                         </svg>
                                         <span>Change Password</span></span></a>

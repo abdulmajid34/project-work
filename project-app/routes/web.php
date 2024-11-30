@@ -69,6 +69,9 @@ Route::middleware(['auth:admin'])->group(function () {
     // route siswa
     // Route::get('/', [SiswaController::class, 'index'])->name('siswa')->middleware(('can:role, "siswa" '));
     Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa')->middleware(('auth'));
+    Route::get('/profile', [SiswaController::class, 'profile'])->name('profile')->middleware(('can:role,"siswa"'));
+    Route::get('/profile/siswa', [SiswaController::class, 'create'])->name('siswa.create')->middleware('can:role,"siswa"');
+    Route::post('/profile/siswa/store', [SiswaController::class, 'store'])->name('siswa.store')->middleware('can:role,"siswa"');
 
     // route bendahara
     // Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('can:role, "bendahara"'));
@@ -79,54 +82,3 @@ Route::middleware(['auth:admin'])->group(function () {
     // Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('can:role, "bendahara"'));
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('auth'));
 });
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-//     Route::prefix('admin')->group(function () {
-//         Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(('can:role, "admin"'));
-//     });
-
-//     Route::prefix('ketua_kelas')->group(function () {
-//         Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware(('can:role, "ketua_kelas"'));
-//     });
-
-//     Route::prefix('siswa')->group(function () {
-//         Route::get('/', [SiswaController::class, 'index'])->name('siswa')->middleware(('can:role, "siswa"'));
-//     });
-
-//     Route::prefix('bendahara')->group(function () {
-//         Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware(('can:role, "bendahara"'));
-//         Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi')->middleware(('can:role, "bendahara"'));
-//     });
-// });
-
-
-// Route::middleware(['can:role, "admin"'])->group(function () {
-//     // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-//     // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(('auth'));
-
-//     Route::prefix('admin')->group(function () {
-//         Route::get('/user', [UserController::class, 'index'])->name('user');
-//     });
-//     // Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(('can:role, "admin"'));
-// });
-
-// Route::middleware(['can:role, "ketua_kelas"'])->group(function () {
-//     Route::prefix('ketua_kelas')->group(function () {
-//         Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
-//     });
-// });
-
-// Route::middleware(['can:role, "siswa"'])->group(function () {
-//     Route::prefix('siswa')->group(function () {
-//         Route::get('/', [SiswaController::class, 'index'])->name('siswa');
-//     });
-// });
-
-// Route::middleware(['can:role, "bendahara"'])->group(function () {
-//     Route::prefix('bendahara')->group(function () {
-//         Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
-//         Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
-//     });
-// });

@@ -13,12 +13,15 @@ class Siswa extends Model
         'user_id',
         'kelas_id',
         'nama_lengkap',
+        'email',
         'nim',
         'tanggal_lahir',
         'jenis_kelamin',
         'status',
         'alamat',
-        'agama'
+        'agama',
+        'no_watshapp',
+        'tentang_saya'
     ];
     protected $dates = ['tanggal_lahir'];
 
