@@ -11,7 +11,9 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $list_siswa = Siswa::all();
+        $query = Siswa::query();;
+
+        $list_siswa = $query->with(['user', 'kelas'])->get();
         return view('siswa.index', compact('list_siswa'));
     }
 
